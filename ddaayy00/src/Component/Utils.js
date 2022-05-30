@@ -1,5 +1,52 @@
 
-import React from "react";
+const fetchJSON = async (url) => {
+  const response = await fetch(url)
+    .then((res) => res.json())
+    .then((data) => data)
+    .catch((err) => console.log(err));
+  return response;
+};
+
+export const getMovieBySearchTerm = (key, title) => {
+  let url = `https://www.omdbapi.com/?apikey=${key}&t=${title}`;
+  return fetchJSON(url);
+};
+
+export const getMovieById = (key, id) => {
+  let url = `https://www.omdbapi.com/?apikey=${key}&i=${id}`;
+  return fetchJSON(url);
+};
+
+
+
+//  import React from "react";
+
+//  let apiKey = "",
+//  searchTerm = "spider man ";
+// let getMoviesBySearchTerm = async (apiKey, searchTerm) => {
+//  const url = `https://www.omdbapi.com/?apikey=${apiKey}&t=${searchTerm}`;
+//  let response = await fetch(url);
+//  let data = await response.json();
+//  console.log(data);
+// };
+
+// getMoviesBySearchTerm(apiKey, searchTerm);
+// let Id = "tt3896198";
+// let getMoviesByDetailsById = async (apiKey, id) => {
+//  const url = `https://www.omdbapi.com/?apikey=${apiKey}&i=${id}`;
+//  let response = await fetch(url);
+//  let data = await response.json();
+//  console.log(data);
+// };
+// getMoviesByDetailsById(apiKey, Id)
+
+// export default Utils;
+
+
+
+
+
+
 
 
 
@@ -54,26 +101,10 @@ import React from "react";
 //   load(event);
 // });
 
-const getMoviesBySearchTerm = async (term) => {
-    const url = new URL(" http://www.omdbapi.com/?i=tt3896198&apikey={Apikey}");
-    url.searchParams.append("apiKey", "apikey");
-    url.searchParams.append("s", term);
-    return await fetch(url);
-}
 
-getMoviesBySearchTerm("Guardians of the Galaxy Vol. 2")
-    .then(results => results.json())
-    .then(data => console.log(data));
 
-const getMovieDetailsById = async (id) => {
-    const url = new URL(" http://www.omdbapi.com/?i=tt3896198&apikey={Apikey}");
-    url.searchParams.append("apiKey", "apikey");
-    url.searchParams.append("s", term);
-    return await fetch(url);
-}
 
-getMovieDetailsById("tt3896198")
-    .then((results) => reuslts.json())
-    .then((data) => console.log(data));
 
-    export default utils;    
+
+
+

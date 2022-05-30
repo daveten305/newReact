@@ -1,7 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import "jquery"
+// import "bootstrap/dist/js/bootstrap"
+// import "popper"
 import './index.css';
 import App from './App';
+import "styled-components"
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
